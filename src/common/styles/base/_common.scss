@@ -1,0 +1,384 @@
+@import "./mixins";
+@import "../stylesheet.scss";
+body {
+  background-color: $bgColor !important;
+  overflow-y: auto;
+  .verticalScroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -moz-appearance: none !important;
+    scrollbar-width: none;
+  }
+  .verticalScroll::-webkit-scrollbar {
+    width: 6px;
+    // display: none;
+  }
+  .verticalScroll::-webkit-scrollbar-track {
+    background-color: $Greys-C5 !important;
+    @include border-radius(10px);
+  }
+
+  .verticalScroll::-webkit-scrollbar-thumb {
+    background-color: $dark-green;
+    @include border-radius(10px);
+  }
+  @include screen_width(320px, 1024px) {
+    overflow-x: auto;
+  }
+}
+.ReactModal__Body--open {
+  height: 100vh;
+  overflow-y: hidden;
+}
+img {
+  max-width: 100%;
+  // height: 100%;
+  // width: 100%;
+  vertical-align: inherit;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  li {
+    list-style-type: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none !important;
+}
+.chat-link {
+  word-break: break-word;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.rounded-btn {
+  border: 1px solid $Greys-C3;
+  @include border-radius(20px);
+  padding: 6px 15px;
+  @include font-size(14px);
+  color: $grey6;
+  font-weight: 500;
+  text-transform: capitalize;
+  cursor: pointer;
+  width: max-content;
+  @include flex();
+  align-items: center;
+  .icon {
+    margin-right: 5px;
+    width: 10px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  &:hover {
+    background-color: $Greys-C2;
+  }
+}
+.primary-rounded {
+  background-color: $dark-green;
+  @include border-radius(30px);
+  padding: 10px 15px;
+  @include font-size(14px);
+  color: $white;
+  font-weight: 500;
+  text-transform: capitalize;
+  cursor: pointer;
+  width: max-content;
+  @include flex();
+  align-items: center;
+  .icon {
+    margin-right: 5px;
+
+    width: 10px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
+.btn-wrapper {
+  @include flex();
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 15px;
+}
+.progressbar {
+  height: 6px;
+  background-color: rgba(0, 112, 74, 0.1);
+  border-radius: 10px;
+  .progressbar-green {
+    height: 6px;
+    background-color: #00704a;
+    border-radius: 10px;
+  }
+}
+
+.main-container {
+  width: 100%;
+  background-color: $white;
+  .auth-header {
+    @include flex(space-between);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.06);
+    padding: 15px 20px;
+    .logo {
+      width: 140px;
+      height: 40px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    .profile-wrapper {
+      height: 40px;
+      width: 40px;
+      cursor: pointer;
+      background-color: $Greys-C4;
+      @include border-radius(30px);
+      padding: 8px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  .wrapper {
+    margin: 40px auto;
+    @include flex(column);
+    justify-content: center;
+    width: 43%;
+  }
+  .body-wrapper {
+    background-color: $bgColor;
+    padding: 40px;
+    .wrapper {
+      padding: 50px 40px;
+      margin: 0px auto;
+      background-color: $white;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      width: 52%;
+    }
+    .icon-info-wrapper {
+      background-color: $white;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      bottom: 34px;
+      right: 0px;
+      padding: 20px;
+      border-radius: 6px;
+      @include font-size(14px);
+      color: $PrimaryTextColor;
+      font-weight: 400;
+    }
+    @include screen_width(320px, 1024px) {
+      padding: 30px;
+      .wrapper {
+        width: 90%;
+      }
+    }
+  }
+}
+.auth-container {
+  background-color: $bgColor;
+  min-height: 100vh;
+  @include flex(column);
+  align-items: center;
+  padding-bottom: 30px;
+  .logo {
+    height: 60px;
+    width: 210px;
+    margin: 30px auto;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background-color: $white;
+    width: 43%;
+    @include border-radius(10px);
+  }
+  @include screen_width(320px, 1024px) {
+    .main-section {
+      width: 90%;
+    }
+  }
+}
+.customize-link {
+  font-size: 16px;
+  color: $linkColor;
+  font-weight: 400;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.text-lg {
+  @include font-size(24px);
+  color: $Blacks-C3;
+  text-align: center;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+.text-lg-md {
+  @include font-size(16px);
+  color: $Blacks-C3;
+  text-align: center;
+  line-height: 32px;
+  margin-top: 20px;
+}
+.text-md,
+.text-sm {
+  @include font-size(14px);
+  color: $grey6;
+  font-weight: 400;
+  text-align: center;
+}
+.text-sm {
+  @include font-size(14px);
+}
+.text-bold-md {
+  @include font-size(16px);
+  color: $Blacks-C3;
+  font-weight: 700;
+  // margin-bottom: 5px;
+}
+.label {
+  @include font-size(16px);
+  color: $grey6;
+  font-weight: 400;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.auth-footer {
+  @include flex();
+  margin-top: 30px;
+  > div {
+    @include font-size(12px);
+    color: $grey6;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+}
+// Cards top section scss
+.top-section {
+  padding: 0px 20px;
+  @include flex();
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  // border-bottom: 1px solid $Greys-C3;
+  .text-lg {
+    @include font-size(30px);
+    color: $PrimaryTextColor;
+    font-weight: 700;
+  }
+  .add {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .link {
+    margin-left: auto;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    padding: 5px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    &:hover {
+      background-color: $Greys-C2;
+      @include border-radius(100%);
+    }
+  }
+}
+
+.overflowScroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -moz-appearance: none !important;
+  scrollbar-width: none;
+}
+
+.noMarginBottom {
+  margin-bottom: 0px;
+}
+
+.overflowScroll::-webkit-scrollbar {
+  display: none; // Safari ,firefox and Chrome
+}
+
+.overflowScroll::-webkit-scrollbar-track {
+  background-color: $dark-green;
+}
+
+.overflowScroll::-webkit-scrollbar-thumb {
+  background-color: $Greys-C5;
+  border-radius: 16px;
+  border: 5px solid $dark-green;
+}
+
+.overflowScroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+.overflowScroll::-webkit-resizer {
+  display: none;
+}
+
+.main {
+  margin-top: 60px;
+}
+.responsive-center {
+  max-width: 1440px;
+  margin: 0px auto;
+}
+
+.marginTop50 {
+  margin-top: 50px;
+}
+.marginBottom20 {
+  margin-bottom: 20px;
+}
+.textAlignCenter {
+  text-align: center;
+}
