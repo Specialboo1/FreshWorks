@@ -1,0 +1,5 @@
+export const LOADING = "LOADING";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_COMMON_SUCCESS = "FETCH_COMMON_SUCCESS";
+export const FETCH_ERROR = "FETCH_ERROR";
+export const CLEAR_STATE = "CLEAR_STATE";

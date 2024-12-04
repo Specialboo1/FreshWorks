@@ -1,18 +1,39 @@
-import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { Suspense, lazy, useContext } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
+import Spinner from "./common/CenteredSpinner";
+import { AuthContext } from "./Authentication";
 
 const Login = lazy(() => import("./scene/Login"));
+const Card = lazy(() => import("./scene/Card"));
 
 function App() {
+  const { isAuthenticated } = useContext(AuthContext);
+
   return (
-    <Suspense>
-      <Router>
+    <Router>
+      <Suspense fallback={<Spinner size={"100px"} />}>
         <Routes>
-          <Route element={Login} path="/login" />
+          <Route
+            path="/"
+            element={isAuthenticated ? <Navigate to="/card" /> : <Login />}
+          />
+          <Route
+            path="/login"
+            element={isAuthenticated ? <Navigate to="/card" /> : <Login />}
+          />
+          <Route
+            path="/card"
+            element={!isAuthenticated ? <Navigate to="/login" /> : <Card />}
+          />
         </Routes>
-      </Router>
-    </Suspense>
+      </Suspense>
+    </Router>
   );
 }
 

@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import LoginLayout from "../scenecomponents/LoginLayout";
+import { AuthContext } from "../Authentication";
+import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
+const Login = () => {
+  const { login, isAuthenticated } = useContext(AuthContext);
   const [loginDetails, setLoginDetails] = useState({
     data: {
       email_id: "",
@@ -9,8 +12,12 @@ const Login = (props) => {
     },
     error: {},
   });
+  const navigate = useNavigate();
 
-  const onClick = () => {};
+  const onClick = () => {
+    login();
+    navigate("/card");
+  };
 
   const onChange = (value, key) => {
     let loginData = { ...loginDetails };
@@ -25,7 +32,6 @@ const Login = (props) => {
       onClick={onClick}
       onChange={onChange}
       loginDetails={loginDetails}
-      {...props}
     />
   );
 };

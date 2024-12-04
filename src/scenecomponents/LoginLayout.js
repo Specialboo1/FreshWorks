@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import "./LoginLayout.scss";
 import { handleKeyPress } from "../common/Functions";
 
-const LoginLayout = ({ loginDetails, onChange, onClick, ...props }) => {
+const LoginLayout = ({ loginDetails, onChange, onClick }) => {
   const [showpwd, setshowpwd] = useState(false);
   const [dataRefs, setDataRefs] = useState([]);
 
@@ -42,12 +42,11 @@ const LoginLayout = ({ loginDetails, onChange, onClick, ...props }) => {
 
   return (
     <div className="auth-container">
-      <div className="logo" />
       <div className="main-section">
         <div className="text-lg">Welcome!</div>
-        <div style={{ alignSelf: "flex-start", width: "100%" }}>
+        <div className="inputgroup">
           {LOGIN_INPUTS.map((element, i) => (
-            <div style={{ marginBottom: 5 }} key={element.key}>
+            <div style={{ marginBottom: 10 }} key={element.key}>
               <Input
                 title={""}
                 inputType={
@@ -73,9 +72,9 @@ const LoginLayout = ({ loginDetails, onChange, onClick, ...props }) => {
                     handleKeyPress(e, buttonFieldRef, true);
                   }
                 }}
-                onForgotPasswordClick={() =>
-                  props.history.push("/forgot-password/")
-                }
+                // onForgotPasswordClick={() =>
+                //   props.history.push("/forgot-password/")
+                // }
                 ref={dataRefs[i]}
               />
             </div>
@@ -99,14 +98,13 @@ const LoginLayout = ({ loginDetails, onChange, onClick, ...props }) => {
             color: "#464646",
           }}
         >
-          CLICK LOGIN TO PROCEED
+          CLICK LOGIN TO PROCEED WITHOUT CREDENTIALS
         </div>
       </div>
     </div>
   );
 };
 LoginLayout.propTypes = {
-  history: PropTypes.any,
   loginDetails: PropTypes.object,
   onChange: PropTypes.func,
   onClick: PropTypes.func,

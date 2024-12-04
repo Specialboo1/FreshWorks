@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./Input.scss";
-import searchIcon from "../../../public/search.png";
-import eyeIcon from "public/eye.png";
-import closeIcon from "public/modal-close.png";
+import searchIcon from "../../assets/search.png";
+import eyeIcon from "../../assets/eye.png";
+import closeIcon from "../../assets/modal-close.png";
 import IconComponent from "../Icon/Icon";
 
 const FormInput = React.forwardRef((props, ref) => {

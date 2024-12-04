@@ -1,0 +1,162 @@
+@import "../styles/stylesheet.scss";
+
+.nav-container {
+  background: transparent linear-gradient(180deg, #ebf0ff 0%, #fff4de 100%);
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  width: 18%;
+  overflow: auto;
+
+  .ant-menu-dark,
+  .ant-menu-dark .ant-menu-sub {
+    background: transparent linear-gradient(180deg, #ebf0ff 0%, #fff4de 100%);
+    margin-top: 20px;
+  }
+
+  .ant-menu-dark.ant-menu-inline .ant-menu-item {
+    font-size: 18px;
+    color: $grey6;
+    font-weight: 400;
+    line-height: 25px;
+    text-transform: capitalize;
+    padding-left: 15px;
+    cursor: pointer;
+    height: 50px;
+  }
+  .ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
+    font-size: 18px;
+    color: $grey6;
+    font-weight: 400;
+    line-height: 25px;
+    text-transform: capitalize;
+    padding-left: 15px;
+    cursor: pointer;
+    height: 50px;
+  }
+  .ant-menu.ant-menu-dark .ant-menu-item-selected,
+  .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+    background-color: $sidemenu-active;
+    color: $black;
+    position: relative;
+    width: 100%;
+    border-radius: 0px;
+    height: 50px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      height: 40px;
+      width: 2px;
+    }
+    a {
+      font-weight: 700;
+    }
+  }
+  .ant-menu-inline.ant-menu-root .ant-menu-item > .ant-menu-title-content,
+  .ant-menu-inline.ant-menu-root
+    .ant-menu-submenu-title
+    > .ant-menu-title-content {
+    display: flex;
+  }
+  .icons {
+    height: 18px;
+    width: 18px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  a {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    line-height: 25px;
+    color: black !important;
+  }
+}
+.ant-menu-submenu {
+  .ant-menu-item {
+    font-size: 16px !important;
+  }
+}
+.ant-menu-submenu-title {
+  margin-bottom: -24px;
+}
+.ant-menu-submenu-selected {
+  border-radius: 10px;
+  li {
+    background-color: #ebf7ff !important;
+  }
+}
+.ant-menu-submenu-open {
+  .ant-menu {
+    padding: 0;
+  }
+  a {
+    color: black !important;
+  }
+}
+
+.ant-menu-submenu-arrow {
+  opacity: 1 !important;
+  &::after,
+  &::before {
+    background-color: $black !important;
+  }
+}
+
+.ant-menu-item,
+.ant-menu-submenu-title {
+  display: flex !important;
+}
+.ant-menu-item-only-child {
+  margin: 0px !important;
+}
+.ant-menu-submenu .ant-menu-item-only-child {
+  padding-left: 65px !important;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+}
+
+.ant-menu-submenu-selected {
+  .ant-menu-submenu-title {
+    background-color: $sidemenu-active;
+  }
+  .ant-menu-inline {
+    background-color: #e3f2ff !important;
+    padding: 5px;
+    li {
+      background-color: transparent !important;
+      padding-left: 65px !important;
+    }
+  }
+  .ant-menu-submenu-arrow {
+    opacity: 1 !important;
+    &::after,
+    &::before {
+      background-color: $black !important;
+    }
+  }
+  .ant-menu-item-selected {
+    background-color: transparent !important;
+    color: $black !important;
+    font-weight: 500 !important;
+    border-radius: 0px 0px 6px 6px;
+  }
+  .remove_color {
+    color: #7f7f7f !important;
+  }
+}
+
+.ant-menu-inline .ant-menu-submenu {
+  padding-bottom: 0px !important;
+}
