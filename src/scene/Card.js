@@ -13,7 +13,14 @@ const Card = () => {
       readId: `https://picsum.photos/v2/list?page=1`,
     },
   });
+  const [comments, getComments] = CommonAction({
+    CRUDbaseUrl: {
+      readId: `https://jsonplaceholder.typicode.com/comments`,
+    },
+  });
   const [data, setData] = useState([]);
+  const [selectedData, setSelectedData] = useState(null);
+  const [detailpage, setDetailPage] = useState(false);
 
   useEffect(() => {
     if (!posts.isLoading && posts.data?.length) {
@@ -29,7 +36,6 @@ const Card = () => {
         url: users.data[index].download_url,
       }));
       setData(dataCopy);
-      console.log(dataCopy);
     }
   }, [users]);
 
@@ -37,7 +43,16 @@ const Card = () => {
     <CardLayout
       data={data}
       isLoading={users.isLoading || posts.isLoading}
-      onClickRow={(data) => console.log(data)}
+      cmtLoading={comments.isLoading}
+      onClickRow={(data) => {
+        setSelectedData(data);
+        setDetailPage(true);
+        getComments({ data: `?postId=${data.id}` });
+      }}
+      selectedData={selectedData}
+      detailpage={detailpage}
+      comments={comments}
+      onGoBack={() => setDetailPage(false)}
     />
   );
 };

@@ -1,0 +1,49 @@
+@import "../styles/stylesheet.scss";
+
+.sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .heading {
+    font-size: 24px;
+    color: $black;
+    font-weight: 400;
+    text-transform: capitalize;
+    &.blue {
+      color: $black;
+    }
+    &.white {
+      color: $white;
+    }
+    .iconify {
+      margin-right: 3px;
+    }
+    &.font18 {
+      font-size: 18px;
+    }
+    &.font21 {
+      font-size: 21px;
+      font-weight: 600;
+    }
+  }
+  .sub-heading {
+    font-size: 24px;
+    color: $black;
+    font-weight: 700;
+    // text-transform: capitalize;
+  }
+}
+.newWrap {
+  display: flex;
+  gap: 16px;
+  .verticalLine {
+    width: 6px;
+    height: 29px;
+    background: #f4c141;
+  }
+  .newstyle {
+    color: #000000;
+    font-weight: 600;
+    font-size: 21px;
+  }
+}
