@@ -66,7 +66,7 @@ const CardLayout = ({
               fontSize: "20px",
             }}
           >
-            List of Posts
+            List of Posts (Click a row to see comments)
           </div>
           <div
             style={{
